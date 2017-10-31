@@ -10,10 +10,11 @@ export class AppComponent {
   listFilter : string ;
 
   employees = ["Gurjeet","Ritu","Nirmal","Hitesh","Naman","Himanshu"]
-  
+  addedEmployees = [];
   
   userAdded(employee){
-    this.listFilter = employee;
+    this.listFilter = "";
+    this.addedEmployees.push(employee);
     console.log(employee);
   }
 }

@@ -5,9 +5,15 @@
      <input type="text" id="search-box" class="form-control" #input [(ngModel)]='listFilter'/>
       <div *ngIf="input.value!=''">
         <div *ngFor="let employee of employees | employeeFilter:listFilter"
-         (click)="userAdded(employee)" style="text-align:left">
+         (click)="userAdded(employee)" style="text-align:left ; border: 1px solid #ccc;padding : 5px">
           {{employee}}
         </div>
       </div>
+  </div>
+  <div class="row">
+    <div class="col-md-offset-1 col-md-4">
+      <div *ngFor="let user of addedEmployees">{{user}}
+        </div>
+    </div>
   </div>
 </div>
