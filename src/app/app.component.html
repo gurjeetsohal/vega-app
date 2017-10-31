@@ -2,11 +2,12 @@
 <div class="container">
   <div class="col-md-offset-4 col-md-4">
      <label for="search-box">Enter the name</label>
-     <input type="text" id="search-box" #input [(ngModel)]='listFilter'/>
+     <input type="text" id="search-box" class="form-control" #input [(ngModel)]='listFilter'/>
+      <div *ngIf="input.value!=''">
         <div *ngFor="let employee of employees | employeeFilter:listFilter"
-         (click)="userAdded(employee)">
+         (click)="userAdded(employee)" style="text-align:left">
           {{employee}}
         </div>
-      
+      </div>
   </div>
 </div>
