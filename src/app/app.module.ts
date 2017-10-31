@@ -1,14 +1,16 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule} from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule }from "@angular/forms"
 
 import { AppComponent } from './app.component';
+import { EmployeeFilterPipe } from './employee-filter.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent, EmployeeFilterPipe
   ],
   imports: [
-    BrowserModule
+    BrowserModule,FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
