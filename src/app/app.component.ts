@@ -9,13 +9,15 @@ import { EmployeeService } from "./employee.service";
 export class AppComponent{
   title = 'app';
   listFilter : string ;
+
+  employees = [];
   
   constructor(private employeeService : EmployeeService){
-       this.employeeService.getEmployees();
+      this.employees = this.employeeService.getEmployees();
   }
   
 
-  employees = ["Gurjeet","Ritu","Nirmal","Hitesh","Naman","Himanshu"]
+  //employees = ["Gurjeet","Ritu","Nirmal","Hitesh","Naman","Himanshu"]
   addedEmployees = [];
   
   userAdded(employee){

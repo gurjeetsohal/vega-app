@@ -6,7 +6,7 @@
       <div *ngIf="input.value!=''">
         <div *ngFor="let employee of employees | employeeFilter:listFilter"
          (click)="userAdded(employee)" style="text-align:left ; border: 1px solid #ccc;padding : 5px">
-          {{employee}}
+          {{employee.name}}
         </div>
       </div>
   </div>
