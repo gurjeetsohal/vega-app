@@ -12,7 +12,8 @@
   </div>
   <div class="row">
     <div class="col-md-offset-1 col-md-4">
-      <div *ngFor="let user of addedEmployees">{{user}}
+      <div *ngFor="let user of addedEmployees ; let i = index">{{user}}
+        <button (click)="userRemoved(user) ; isClicked=i" [class.active]="isClicked==i"> X </button>
         </div>
     </div>
   </div>
