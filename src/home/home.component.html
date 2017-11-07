@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row" *ngIf="!Submitted">
+
+        <div class="col-md-offset-1 col-md-4">
+            <label for="search-box">Enter the name</label>
+            <input type="text" id="search-box" class="form-control" #input [(ngModel)]='listFilter'/>
+              <div *ngIf="input.value!=''">
+                <div *ngFor="let employee of employees | employeeFilter:listFilter"
+                (click)="userAdded(employee)" style="text-align:left ; border: 1px solid #ccc;padding : 5px">
+                  {{employee.name}}
+                </div>
+              </div>
+        </div>
+
+        <div class="col-md-offset-1 col-md-6">
+            <div class="panel panel-default">
+                    <div class="panel-heading">Added Employees</div>
+                    <div class="panel-body">
+            <div *ngFor="let user of addedEmployees ; let i = index" class="well well-sm" id="user_well">{{user.name}} 
+              <span class="glyphicon glyphicon-remove" aria-hidden="true" (click)="userRemoved(user) ; isClicked=i" 
+                [class.active]="isClicked==i" id="remove_btn"></span>
+            </div>
+            <button class="form-control btn btn-primary" id="succeedBtn" (click)="onSucceed()" *ngIf='addedEmployees.length <= 0 ?false : true'>Succeed</button>
+            </div>
+        </div>
+        </div>
+       
+    </div>   
+    <app-main *ngIf="Submitted"></app-main>
+</div> 

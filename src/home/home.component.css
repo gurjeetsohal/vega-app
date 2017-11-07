@@ -1,0 +1,17 @@
+#remove_btn{
+    float: right;
+}
+
+#user_well{
+    margin : 5px;
+    padding : 6px;
+}
+
+.panel-heading{
+    font-weight: bold;
+}
+
+#succeedBtn{
+    margin-left : 5px;
+    width : 98%;
+}

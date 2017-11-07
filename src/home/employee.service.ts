@@ -11,19 +11,19 @@ export class EmployeeService{
 
     getEmployees(){
         var emp_arr =  [{
-            name : "surjeet",
+            name : "Surjeet",
             username : "surjeet.singh"
         },
         {
-            name : "gurjeet",
+            name : "Gurjeet",
             username : "gurjeet.singh"
         },
         {
-            name : "manjeet",
+            name : "Manjeet",
             username : "manjeet.singh"
         },
         {
-            name : "harjeet",
+            name : "Harjeet",
             username : "harjeet.singh"
         }]
 
@@ -33,5 +33,4 @@ export class EmployeeService{
 
         return this.emp_obj_arr;
     }
-
 }
