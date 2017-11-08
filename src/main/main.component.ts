@@ -1,4 +1,4 @@
-import { Component , OnInit} from '@angular/core';
+import { Component , OnInit , Output , EventEmitter} from '@angular/core';
 
 
 @Component({
@@ -8,11 +8,12 @@ import { Component , OnInit} from '@angular/core';
 
 export class MainComponent{
    
+  @Output() localStorageClear = new EventEmitter<Boolean>();
+
   //toClear LocalStorage
 
   onClick(){
-    localStorage.setItem("selected_employees",JSON.stringify([]))
-   
+    this.localStorageClear.emit(true);
   }
 
 }

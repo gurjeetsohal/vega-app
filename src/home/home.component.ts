@@ -1,4 +1,4 @@
-import { Component , OnInit} from '@angular/core';
+import { Component , OnInit , OnChanges} from '@angular/core';
 import { EmployeeService } from "./employee.service";
 import { Router } from '@angular/router'
 
@@ -7,7 +7,7 @@ import { Router } from '@angular/router'
   templateUrl: './home.component.html',
   styleUrls : ['./home.component.css']
 })
-export class HomeComponent implements OnInit{
+export class HomeComponent implements OnChanges{
   title = 'app';
   listFilter : string ;
   employees = [];
@@ -19,11 +19,13 @@ export class HomeComponent implements OnInit{
   }
   
 
-  //employees = ["Gurjeet","Ritu","Nirmal","Hitesh","Naman","Himanshu"]
-  ngOnInit(){
-    // if(localStorage.getItem("selected_employees").length >0){
-    //   this.Submitted = true;
-    // }
+  ngOnChanges(){
+     if(localStorage.getItem("selected_employees") === undefined){
+       localStorage.setItem("selected_employees",JSON.stringify(this.addedEmployees));
+       this.Submitted = false;
+    }else{
+      this.Submitted = true;
+    }
   }
   
   
@@ -48,5 +50,9 @@ export class HomeComponent implements OnInit{
     this.Submitted = true ;
     //this.router.navigate(['/main']);
     
+  }
+  localStorageClear(bool : Boolean){
+    this.Submitted = false;
+    localStorage.removeItem("selected_employees");
   }
 }

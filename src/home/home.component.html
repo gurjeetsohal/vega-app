@@ -26,5 +26,5 @@
         </div>
        
     </div>   
-    <app-main *ngIf="Submitted"></app-main>
+    <app-main *ngIf="Submitted" (localStorageClear)="localStorageClear($event)"></app-main>
 </div> 
