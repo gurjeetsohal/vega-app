@@ -17,29 +17,9 @@ export class EmployeeService{
     }
 
     getEmployees(){
-        // var emp_arr =  [{
-        //     name : "Surjeet",
-        //     username : "surjeet.singh"
-        // },
-        // {
-        //     name : "Gurjeet",
-        //     username : "gurjeet.singh"
-        // },
-        // {
-        //     name : "Manjeet",
-        //     username : "manjeet.singh"
-        // },
-        // {
-        //     name : "Harjeet",
-        //     username : "harjeet.singh"
-        // }]
-
-        // for(let arr of emp_arr){
-        //      this.emp_obj_arr.push(new Employee(arr));
-        // }
+    
         return this.http.get('http://hitesh:3000/test_vega')
         .do(res => console.log(res));
-        //.do(res => console.log("my response type: "+typeof JSON.parse(res));
   
     }
 }
