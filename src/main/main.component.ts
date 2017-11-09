@@ -8,6 +8,7 @@ import { Component , OnInit , Output , EventEmitter} from '@angular/core';
 
 export class MainComponent{
    
+  
   @Output() localStorageClear = new EventEmitter<Boolean>();
 
   //toClear LocalStorage

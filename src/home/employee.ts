@@ -3,7 +3,7 @@ export class Employee{
      username : string;
 
      constructor(object){
-        this.name = object.name;
+        this.name = object.content;
         this.username = object.username; 
      }
 

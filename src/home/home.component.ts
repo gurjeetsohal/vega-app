@@ -1,13 +1,14 @@
-import { Component , OnInit , OnChanges} from '@angular/core';
+import { Component , OnInit , OnChanges ,DoCheck} from '@angular/core';
 import { EmployeeService } from "./employee.service";
-import { Router } from '@angular/router'
+import { Router } from '@angular/router';
+import { Employee } from './employee';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls : ['./home.component.css']
 })
-export class HomeComponent implements OnChanges{
+export class HomeComponent implements OnInit{
   title = 'app';
   listFilter : string ;
   employees = [];
@@ -15,18 +16,34 @@ export class HomeComponent implements OnChanges{
   Submitted : boolean = false;
 
   constructor(private employeeService : EmployeeService , private router : Router){
-      this.employees = this.employeeService.getEmployees();
+       this.employeeService.getEmployees().subscribe( (data : any) =>{
+            
+            console.log(data._body);
+            let parsedJSON = JSON.parse(data._body);
+            
+            for(let i = 0 ; i < parsedJSON.length ; i++){
+                this.employees.push(new Employee(parsedJSON[i]));
+            }
+      });
   }
   
 
-  ngOnChanges(){
-     if(localStorage.getItem("selected_employees") === undefined){
-       localStorage.setItem("selected_employees",JSON.stringify(this.addedEmployees));
+  ngOnInit(){
+    if(localStorage.getItem("selected_employees") == undefined){
        this.Submitted = false;
     }else{
       this.Submitted = true;
     }
+    console.log("oninit invked");
   }
+
+  // ngDoCheck(){
+  //   if(localStorage.getItem("selected_employees") == undefined){
+  //     console.log("docheck inside")
+  //     this.Submitted = false;
+  //   }
+  //   console.log("Docheck invked");
+  // }
   
   
   userAdded(employee){
