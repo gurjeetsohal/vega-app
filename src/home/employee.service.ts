@@ -19,7 +19,7 @@ export class EmployeeService{
     getEmployees(){
     
         return this.http.get('http://hitesh:3000/test_vega')
-        .do(res => console.log(res));
+       // .do(res => console.log(res));
   
     }
 }
