@@ -16,10 +16,14 @@ export class EmployeeService{
 
     }
 
-    getEmployees(){
-    
-        return this.http.get('http://hitesh:3000/test_vega')
-       // .do(res => console.log(res));
+    getEmployeesInfo(){
+     return this.http.get('http://localhost:3000/employees_info')
+       .do(res => console.log("get employees info: "+res));
   
+    }
+
+    getEmployeesOnLeave(){
+        return this.http.get('http://hitesh:3000/test_vega')
+        .do(res => console.log("get employees leave: "+res));
     }
 }

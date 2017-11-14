@@ -21,9 +21,9 @@ export class MainComponent implements OnInit{
   }
    
   //toClear LocalStorage
-  // onClearStorage(){
-  //   this.localStorageClear.emit(true);
-  // }
+  onClearStorage(){
+    this.localStorageClear.emit(true);
+  }
 
   onUpdateStorage(){
       this.updateLocalStorage.emit({addedEmployees : this.visArray , bool : true});
@@ -37,9 +37,9 @@ export class MainComponent implements OnInit{
 
   ngOnInit(){
    
-   this.employeeService.getEmployees().subscribe( (data : any) =>{
+   this.employeeService.getEmployeesOnLeave().subscribe( (data : any) =>{
       
-      //console.log(data._body);
+            console.log(data._body);
             let parsedJSON = JSON.parse(data._body);
             
             for(let i = 0 ; i < parsedJSON.length ; i++){
@@ -64,7 +64,8 @@ export class MainComponent implements OnInit{
           var options = {};
         
           // Create a Timeline
-          var timeline = new vis.Timeline(this.element.nativeElement, items, options);
+        //  var timeline = new vis.Timeline(this.element.nativeElement, items, options);
+        var timeline = new vis.Timeline(document.getElementById('timeline'), items, options);
           
    });
 

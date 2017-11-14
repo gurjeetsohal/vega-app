@@ -16,9 +16,9 @@ export class HomeComponent implements OnInit{
   Submitted : boolean = false;
 
   constructor(private employeeService : EmployeeService , private router : Router){
-       this.employeeService.getEmployees().subscribe( (data : any) =>{
+       this.employeeService.getEmployeesInfo().subscribe( (data : any) =>{
             
-            //console.log(data._body);
+            console.log(data._body);
             let parsedJSON = JSON.parse(data._body);
             
             for(let i = 0 ; i < parsedJSON.length ; i++){
@@ -49,17 +49,26 @@ export class HomeComponent implements OnInit{
   
   
   userAdded(employee){
-    this.listFilter = "";
-    this.addedEmployees.push(employee.name);
+    let i = 0;
     
-    let index = this.employees.indexOf(employee);
-    this.employees.splice(index,1);
+    for( i = 0 ; i < this.addedEmployees.length ; i++ ){
+        if(this.addedEmployees[i] === employee.name){
+          alert(employee.name+" is already added");
+          break;
+        }
+    }
+    if(i >= this.addedEmployees.length){
+      this.listFilter = "";
+      this.addedEmployees.push(employee.name);
+    }
+    // let index = this.employees.indexOf(employee);
+    // this.employees.splice(index,1);
     console.log(employee.name);
   }
 
   userRemoved(employee){
-    let index = this.addedEmployees.indexOf(employee.name);
-    this.employees.push(employee);
+    let index = this.addedEmployees.indexOf(employee);
+    //this.employees.push(employee);
     this.addedEmployees.splice(index,1);
     console.log(this.addedEmployees);
   }
@@ -70,10 +79,10 @@ export class HomeComponent implements OnInit{
     //this.router.navigate(['/main']);  
   }
 
-  // localStorageClear(bool : Boolean){
-  //   this.Submitted = false;
-  //   localStorage.removeItem("selected_employees");
-  // }
+  localStorageClear(bool : Boolean){
+    this.Submitted = false;
+    localStorage.removeItem("selected_employees");
+  }
 
   updateLocalStorage(obj : any){ 
      this.addedEmployees = JSON.parse(localStorage.getItem("selected_employees"));
