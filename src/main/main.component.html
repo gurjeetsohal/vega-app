@@ -1,24 +1,54 @@
-<div class = "row">
-    <div class = "col-md-2">
-        <button (click)="onClearStorage()" class="form-control btn btn-primary">Clear local storage</button>
-    </div>
-    
-    <div class = "col-md-2">
-        <button (click)="onUpdateStorage()" class="form-control btn btn-primary">Update Employees List</button>
-    </div>    
-</div>
 <br>
 <br>
 <div class="row">
-   <div class = "col-md-12" id="timeline">
+    <div class = "col-md-12" id="timeline">
    </div>
 </div>
-<br>
-<br>
-<div class= "row">
+
+
+<div class = "row">
+
     <div class = "col-md-offset-1 col-md-5">
-        here employees data will come
+            <h1>Information</h1>
+            <h4>Today on Leave:</h4>
+            <div *ngIf="leaveToday.length == 0">
+                <p>All are present</p>
+            </div>
+            <div *ngIf="leaveToday.length != 0">
+            <p id="leavetoday" *ngFor="let emp of leaveToday; let i = index">{{i+1}}. {{emp}}</p>
+            </div>
+
+            <h4>On Planned Leave :</h4>
+            <div *ngIf="plannedLeave.length == 0">
+                <p>No planned Leave till now</p>
+            </div>
+            <div *ngIf="plannedLeave.length != 0">
+                <p id="plannedLeave" *ngFor="let emp of plannedLeave; let i = index">{{i+1}}. {{emp}}</p>
+                <!-- <h4>Available resources this week</h4>
+                <p>{{availableResources}}</p>  -->
+
+            </div>
+
+    </div>   
+    <div class="col-md-6">
+    <br>
+    <!-- <div class = "col-md-6">
+        <button (click)="onClearStorage()" class="form-control btn btn-primary">Clear local storage</button>
+    </div> -->
+    <div class="row">
+        <div class="col-md-offset-6 col-md-6">
+            <label for="endDate">Change end date of timeline</label> 
+            <input type="number" id="endDate" class="form control" [(ngModel)]="addToEndDate" (change)="updateTimeline()">
+        </div>
+    </div>
+
+    <div class="row">
+    <div class = "col-md-offset-6 col-md-6">
+        <button (click)="onUpdateStorage()" class="form-control btn btn-primary">Update Employees List</button>
+    </div>
+    </div>
+
     </div>
 
 </div>
-<br><br>
+

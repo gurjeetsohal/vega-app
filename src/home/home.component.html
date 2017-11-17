@@ -16,7 +16,7 @@
             <div class="panel panel-default">
                     <div class="panel-heading">Added Employees</div>
                     <div class="panel-body">
-            <div *ngFor="let user of addedEmployees ; let i = index" class="well well-sm" id="user_well">{{user}} 
+            <div *ngFor="let user of addedEmployees ; let i = index" class="well well-sm" id="user_well">{{user.name}} 
               <span class="glyphicon glyphicon-remove" aria-hidden="true" (click)="userRemoved(user) ; isClicked=i" 
                 [class.active]="isClicked==i" id="remove_btn"></span>
             </div>
