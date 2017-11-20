@@ -6,7 +6,8 @@ import * as moment from 'moment';
 declare var vis: any;
 @Component({
   selector: 'app-main',
-  templateUrl: './main.component.html'
+  templateUrl: './main.component.html',
+  styleUrls : ['./main.component.css']
 })
 
 export class MainComponent implements OnInit{
@@ -109,7 +110,7 @@ export class MainComponent implements OnInit{
             //console.log("start date : "+startDate);
             if(startDate === this.currDate){
                 this.leaveToday.push(this.visArray[i].name);
-                console.log("he/she on leave : "+this.visArray[i].name)
+                //console.log("he/she on leave : "+this.visArray[i].name)
             }
         }
     //    console.log(this.visArray.length)

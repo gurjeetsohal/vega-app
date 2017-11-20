@@ -18,12 +18,12 @@ export class EmployeeService{
 
     getEmployeesInfo(){
      return this.http.get('/employees_info')
-       .do(res => console.log("get employees info: "+res));
+      // .do(res => console.log("get employees info: "+res));
   
     }
 
     getEmployeesOnLeave(){
         return this.http.get('/test_vega')
-        .do(res => console.log("get employees leave: "+res));
+        //.do(res => console.log("get employees leave: "+res));
     }
 }

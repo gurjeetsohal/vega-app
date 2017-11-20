@@ -1,0 +1,16 @@
+#timeline{
+    margin-top : 30px;
+}
+
+#endDate{
+   min-width : 261px;
+   padding  :6px;
+}
+
+#updateListBtn{
+    margin-top : 5px;
+}
+
+#endDateLabel{
+    margin-top : 10px;
+}

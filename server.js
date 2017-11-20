@@ -22,12 +22,12 @@ app.use(function(req, res, next) {
     next();
 });
 
-app.get('/employees_leave', (req, res) => {
-    request("http://hitesh:3000/test_vega",function(err,response, responseHtml){
-        console.log(JSON.parse(response.body));
-        res.json(JSON.parse(response.body));
-    })
-});
+// app.get('/employees_leave', (req, res) => {
+//     request("http://hitesh:3000/test_vega",function(err,response, responseHtml){
+//         console.log(JSON.parse(response.body));
+//         res.json(JSON.parse(response.body));
+//     })
+// });
 
 
 
@@ -84,7 +84,7 @@ check_geeks_html = true;
 app.get('/test_vega', function(req, res, next) {
     
         // here we will send response to our controller 
-        console.log("A Get Request Recieved for geksforgeeks");
+       // console.log("A Get Request Recieved for geksforgeeks");
     
     
         var name_hello;
@@ -118,8 +118,8 @@ app.get('/test_vega', function(req, res, next) {
     
     function processUserData(html) {
         var $ = cheerio.load(html);
-                console.log("-------------------------------");
-       console.log($('.field').text());
+                //console.log("-------------------------------");
+       //console.log($('.field').text());
     }
     
     var process_geeksforgeeks = function(res) {
@@ -136,7 +136,7 @@ app.get('/test_vega', function(req, res, next) {
         //     // command output is in stdout]
         //     console.log(stdout);
         // });
-        console.log("-----------------------");
+       // console.log("-----------------------");
     
         // quote_json.src = base_url + $('.zoomc')[random_quote].attribs.src;
         // quote_json.text = $('.zoomc')[random_quote].attribs.alt;
@@ -144,7 +144,7 @@ app.get('/test_vega', function(req, res, next) {
         var sample_array = [];
         $('.msgTable').each(function() {
             // To get to particular table // Late arrivals and leave messages
-            console.log("-------------------------------");
+           // console.log("-------------------------------");
             var current_scope = $(this); //Setting scope to a particular variable 
             var array_of_nodes = current_scope.find('.blueText > span'); // Finding all the span nodes in that particular node
     
@@ -181,9 +181,9 @@ app.get('/test_vega', function(req, res, next) {
                     } else if (dummy_data.indexOf("today") > -1) {
                         var date = new Date();
                         single_element.start = new Date(date.getFullYear(), date.getMonth(), date.getDate());
-                        console.log(single_element.start);
+                        //console.log(single_element.start);
                     } else if (dummy_data.indexOf("will not come") > -1) {
-                        console.log(dummy_data);
+                        //console.log(dummy_data);
                     } else {
     
                         single_element.content = dummy_data;
